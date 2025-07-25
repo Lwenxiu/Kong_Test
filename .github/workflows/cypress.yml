@@ -21,7 +21,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
+      - name: verify cypress
+        run: npx cypress verify
       - name: Run Cypress tests with mochawesome
         run: |
           npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
