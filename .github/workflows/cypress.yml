@@ -22,6 +22,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Make Cypress executable
+        run: chmod +x node_modules/.bin/cypress
+                
+      - name: Install Cypress binary
+        run: npx cypress install
+
       - name: Run Cypress tests with mochawesome
         run: |
           npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true
